@@ -2,6 +2,8 @@
 
 One-click save from any webpage to your self-hosted [Taste Canvas](https://github.com/spoony-vu/taste-canvas) board.
 
+**[→ taste-canvas-landing.vercel.app](https://taste-canvas-landing.vercel.app)** — full setup guide, screenshots, FAQ.
+
 ![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)
 
 ## What it does
