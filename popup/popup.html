@@ -45,6 +45,18 @@
           The API key is the value of <code>TASTE_API_KEY</code> in your
           deployment's environment variables.
         </p>
+        <p class="settings-help">
+          <strong>Where to find it:</strong>
+          <a href="https://vercel.com/dashboard" target="_blank" rel="noopener noreferrer">Vercel dashboard</a>
+          → your taste-canvas project → Settings → Environment Variables →
+          reveal <code>TASTE_API_KEY</code>.
+        </p>
+        <p class="settings-help">
+          <strong>Don't have one yet?</strong> Generate with
+          <code>openssl rand -hex 32</code>, add it to Vercel as
+          <code>TASTE_API_KEY</code>, redeploy, then paste it here.
+          <a href="https://github.com/spoony-vu/taste-canvas#where-do-i-get-the-taste_api_key" target="_blank" rel="noopener noreferrer">Full guide →</a>
+        </p>
 
         <div class="actions">
           <button id="saveSettingsBtn" class="btn btn--primary">
