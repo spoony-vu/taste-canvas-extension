@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <div id="app">
+      <!-- Settings screen (also serves as first-run welcome) -->
+      <div id="settings" class="screen" hidden>
+        <div class="settings-header">
+          <button id="settingsBack" class="icon-btn" title="Back" hidden>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+          </button>
+          <h2 class="settings-title">Settings</h2>
+        </div>
+
+        <p class="settings-intro" id="settingsIntro">
+          Connect this extension to your own Taste Canvas deployment. Your data
+          stays in your Vercel account — nothing flows through any shared
+          server.
+        </p>
+
+        <label class="field-label" for="backendUrlInput">Backend URL</label>
+        <input
+          id="backendUrlInput"
+          type="url"
+          placeholder="https://your-taste-canvas.vercel.app"
+          spellcheck="false"
+          autocomplete="off"
+        />
+
+        <label class="field-label" for="apiKeyInput">API key</label>
+        <input
+          id="apiKeyInput"
+          type="password"
+          placeholder="TASTE_API_KEY value"
+          spellcheck="false"
+          autocomplete="off"
+        />
+
+        <p class="settings-help">
+          The API key is the value of <code>TASTE_API_KEY</code> in your
+          deployment's environment variables.
+        </p>
+
+        <div class="actions">
+          <button id="saveSettingsBtn" class="btn btn--primary">
+            <span class="btn-label">Save</span>
+            <span class="btn-saving" hidden>Saving...</span>
+          </button>
+        </div>
+
+        <div id="settingsStatus" class="status" hidden></div>
+      </div>
+
+      <!-- Main capture screen -->
+      <div id="main" class="screen" hidden>
+        <div class="url-bar">
+          <input
+            id="urlInput"
+            type="url"
+            placeholder="Paste a URL or save current page"
+            spellcheck="false"
+            autocomplete="off"
+          />
+          <button id="fetchBtn" class="url-fetch" title="Fetch metadata">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="1 4 1 10 7 10"/>
+              <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/>
+            </svg>
+          </button>
+        </div>
+
+        <div id="preview" class="preview" hidden>
+          <img id="ogImage" alt="" />
+        </div>
+
+        <input
+          id="titleInput"
+          type="text"
+          placeholder="Title"
+          spellcheck="false"
+        />
+
+        <div class="row">
+          <select id="categorySelect">
+            <option value="ui">UI</option>
+            <option value="landing-pages">Landing Pages</option>
+            <option value="interactions">Interactions</option>
+            <option value="typeface">Typeface</option>
+            <option value="color-palette">Color Palette</option>
+            <option value="branding">Branding</option>
+            <option value="graphics">Graphics</option>
+            <option value="patterns">Patterns</option>
+            <option value="symbol">Symbol</option>
+            <option value="tools">Tools</option>
+          </select>
+
+          <input
+            id="tagsInput"
+            type="text"
+            placeholder="Tags"
+            spellcheck="false"
+          />
+        </div>
+
+        <div class="actions">
+          <button id="saveBtn" class="btn btn--primary">
+            <span class="btn-label">Save</span>
+            <span class="btn-saving" hidden>Saving...</span>
+          </button>
+          <button id="screenshotBtn" class="btn btn--icon" title="Screenshot + save">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+              <circle cx="12" cy="13" r="4"/>
+            </svg>
+          </button>
+        </div>
+
+        <div id="status" class="status" hidden></div>
+
+        <div class="settings-row">
+          <label class="toggle-label" for="imageOverlayToggle">Image hover saver</label>
+          <label class="toggle">
+            <input type="checkbox" id="imageOverlayToggle" />
+            <span class="toggle-track"></span>
+          </label>
+        </div>
+
+        <div class="footer-row">
+          <button id="openSettingsBtn" class="text-btn">Settings</button>
+        </div>
+      </div>
+    </div>
+    <script src="popup.js" type="module"></script>
+  </body>
+</html>

@@ -1,0 +1,78 @@
+/* Toast */
+.taste-toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 2147483647;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font: 13px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: #fff;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 150ms ease-out, transform 150ms ease-out;
+}
+
+.taste-toast--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.taste-toast--saved {
+  background: #1a1a1a;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+}
+
+.taste-toast--error {
+  background: #c53030;
+  box-shadow: 0 2px 12px rgba(197, 48, 48, 0.3);
+}
+
+/* Image hover overlay */
+.taste-overlay {
+  position: fixed;
+  z-index: 2147483646;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 120ms ease-out;
+}
+
+.taste-overlay--visible {
+  opacity: 1;
+}
+
+.taste-overlay-btn {
+  all: unset;
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: rgba(255, 255, 255, 0.85);
+  cursor: pointer;
+  transition: background 100ms ease, transform 100ms ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .taste-overlay-btn:hover {
+    background: rgba(0, 0, 0, 0.9);
+    transform: scale(1.1);
+  }
+}
+
+.taste-overlay-btn:active {
+  transform: scale(0.92);
+}
+
+.taste-overlay-btn--saving {
+  opacity: 0.4;
+  pointer-events: none;
+}
