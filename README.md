@@ -25,9 +25,30 @@ The extension is unpublished — install from source:
 5. Click the extension icon in your toolbar to open the popup
 6. First-run will show the **Settings** panel — fill in:
    - **Backend URL** — your deployed Taste Canvas origin (`https://your-taste-canvas.vercel.app`)
-   - **API key** — the value of `TASTE_API_KEY` in your deployment's environment variables
+   - **API key** — your `TASTE_API_KEY` (see below for how to find or generate it)
 
 The extension verifies the URL + key by hitting `/api/manifest` before saving. Once connected, you're done.
+
+### Where do I get the API key?
+
+`TASTE_API_KEY` is a Vercel environment variable in your Taste Canvas deployment. Three scenarios:
+
+**You set it during the Deploy-to-Vercel flow** (most common):
+1. Go to [vercel.com/dashboard](https://vercel.com/dashboard) → your `taste-canvas` project
+2. **Settings → Environment Variables**
+3. Find `TASTE_API_KEY` → click the eye icon to reveal → copy
+4. Paste into the extension's Settings panel → **Save**
+
+**You never set one** (write endpoints are currently open — fix this):
+1. Generate one: `openssl rand -hex 32`
+2. Vercel → project → Settings → Environment Variables → **Add New** → name `TASTE_API_KEY`, paste value, select all environments → **Save**
+3. **Redeploy** (Deployments → latest → ⋯ → Redeploy) so the new var takes effect
+4. Paste the same value into the extension
+
+**You want to rotate it:**
+1. Generate a new `openssl rand -hex 32` value
+2. Update the env var in Vercel → redeploy
+3. Update the extension's Settings with the new value
 
 ## How it stays yours
 
