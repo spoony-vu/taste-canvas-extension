@@ -36,6 +36,23 @@ body {
   flex-direction: column;
   gap: 8px;
   padding: 10px;
+  position: relative;
+}
+
+/* Discreet floating gear in #main top-right corner */
+.icon-btn--floating {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 22px;
+  height: 22px;
+  z-index: 2;
+  opacity: 0.55;
+  transition: opacity 120ms ease, background 120ms ease, color 120ms ease;
+}
+
+.icon-btn--floating:hover {
+  opacity: 1;
 }
 
 /* URL bar */
@@ -365,23 +382,3 @@ input[type="password"]:focus {
   font-size: 10.5px;
 }
 
-/* Footer settings link */
-.footer-row {
-  display: flex;
-  justify-content: flex-end;
-  padding-top: 4px;
-}
-
-.text-btn {
-  all: unset;
-  font-size: 11px;
-  color: var(--text-dim);
-  cursor: pointer;
-  padding: 2px 4px;
-  border-radius: 4px;
-  transition: color 120ms ease;
-}
-
-.text-btn:hover {
-  color: var(--text);
-}
