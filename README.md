@@ -16,6 +16,12 @@ One-click save from any webpage to your self-hosted [Taste Canvas](https://githu
 
 Tweet URLs are auto-detected and routed through the backend's `/api/tweet` import (uses fxtwitter for media metadata).
 
+## What it looks like
+
+| Save | Settings |
+|------|----------|
+| ![Save view of the popup](images/popup-main.png) | ![Settings view](images/popup-settings.png) |
+
 ## Install
 
 The extension is unpublished — install from source:
