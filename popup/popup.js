@@ -54,6 +54,10 @@ function showSettings({ firstRun = false } = {}) {
     if (backendUrl) backendUrlInput.value = backendUrl;
     if (apiKey) apiKeyInput.value = apiKey;
   });
+
+  chrome.storage.local.get(["imageOverlayEnabled"]).then(({ imageOverlayEnabled = true }) => {
+    imageOverlayToggle.checked = imageOverlayEnabled;
+  });
 }
 
 function showMain() {
