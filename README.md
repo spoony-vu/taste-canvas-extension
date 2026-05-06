@@ -107,6 +107,15 @@ chrome.storage.sync.clear()
 
 Or right-click the extension icon → **Manage extension** → **Site access** → revoke the backend host permission.
 
+## Publishing to Chrome Web Store
+
+To publish a new version: bump the `version` field in `manifest.json`, run `./scripts/pack.sh`, upload the resulting zip from `dist/` to the Chrome Web Store dashboard, paste in the listing copy from [`store/LISTING.md`](store/LISTING.md), and upload the assets in `store/assets/` (icon, screenshots, promo tiles). The store-facing privacy policy lives at [`store/PRIVACY.md`](store/PRIVACY.md).
+
+```sh
+./scripts/pack.sh
+# → dist/taste-canvas-extension-vX.Y.Z.zip
+```
+
 ## License
 
 MIT
